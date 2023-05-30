@@ -19,7 +19,7 @@ jobs:
         uses: docker/build-push-action@v1
         with:
           dockerfile: Dockerfile
-          repository: ${{ secrets.REGISTRY_USER }}/${{ github.event.repository.name }}
+          repository: ${{ vars.ACR_NAME }}/${{ github.event.repository.name }}
           tag_with_ref: true
           tag_with_sha: true
 
