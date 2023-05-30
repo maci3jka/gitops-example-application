@@ -18,7 +18,7 @@ jobs:
         with:
           dockerfile: Dockerfile
           registry: ${{ vars.REGISTRY_LOGIN_SERVER }}
-          repository: ${{ vars.REGISTRY_LOGIN_SERVER }}/${{ github.event.repository.name }}
+          repository: ${{ github.event.repository.name }}
           username: ${{ vars.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
           tag_with_ref: true
