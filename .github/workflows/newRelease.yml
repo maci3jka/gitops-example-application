@@ -13,7 +13,6 @@ jobs:
       - uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-          environment: 'AzureStack'
       - name: Login to acr
         run: az acr login --name ${{ vars.ACR_NAME }}
       - name: Build and Push Container Image
