@@ -7,6 +7,7 @@ RUN go build -o go-app
 #FROM alpine:latest as certs
 #RUN apk --no-cache add ca-certificates
 
+
 FROM scratch
 #COPY --from=certs /etc/ssl/certs/* /etc/ssl/certs/
 ENTRYPOINT ["/go-app"]
