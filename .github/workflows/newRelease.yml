@@ -10,12 +10,15 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          environment: 'AzureStack'
+      - name: Login to acr
+        run: az acr login --name ${{ variables.ACR_NAME }}
       - name: Build and Push Container Image
         uses: docker/build-push-action@v1
         with:
-          username: ${{ secrets.REGISTRY_USER }}
-          password: ${{ secrets.REGISTRY_TOKEN }}
           dockerfile: Dockerfile
           repository: ${{ secrets.REGISTRY_USER }}/${{ github.event.repository.name }}
           tag_with_ref: true
