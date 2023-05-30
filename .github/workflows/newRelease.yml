@@ -37,6 +37,6 @@ jobs:
         with:
           workflow: New Application Version
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-          inputs: '{"tag_name": "${{ env.TAG_NAME }}", "app_repo": "${{ github.event.repository.name }}", "image": "${{ github.event.repository.full_name }}:${{ env.TAG_NAME }}"}'
+          inputs: '{"tag_name": "${{ env.TAG_NAME }}", "app_repo": "${{ github.event.repository.name }}", "image": "${{ vars.REGISTRY_LOGIN_SERVER }}/${{ github.event.repository.name }}:${{ env.TAG_NAME }}"}'
           ref: refs/heads/main
           repo: ${{ env.ENV_REPO }}
