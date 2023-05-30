@@ -32,7 +32,7 @@ jobs:
         run:  echo "TAG_NAME=`echo ${GITHUB_REF#refs/tags/}`" >> $GITHUB_ENV
       - name: Open PR in Environment Repository for new App Version
         env:
-          ENV_REPO: ${{ github.event.repository.owner.name }}/example-environment
+          ENV_REPO: ${{ github.event.repository.owner.name }}/gitops-example-environment
         uses: benc-uk/workflow-dispatch@v1.1
         with:
           workflow: New Application Version
